@@ -12,15 +12,15 @@ const feedback = JSON.parse(localStorage.getItem('feedback-form-state'));
 if (feedback){
     form.elements.email.value = feedback.email;
     form.elements.message.value = feedback.message;
+
     }
     else{
     form.elements.email.value = "";
     form.elements.message.value = "";}
-
+  
 form.addEventListener('submit',(e) => {
+console.log(JSON.parse(localStorage.getItem('feedback-form-state')));
 e.preventDefault();
-console.log('email :' + feedback.email);
-console.log('message :' + feedback.message);
-localStorage.setItem('feedback-form-state','');
+localStorage.removeItem('feedback-form-state');
 form.reset();
 });
